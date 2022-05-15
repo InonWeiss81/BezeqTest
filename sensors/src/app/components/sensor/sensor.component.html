@@ -1,0 +1,23 @@
+<div class="sensor">
+    <div class="img-container">
+        <img src="{{ src }}" alt="{{ alt }}">
+    </div>
+    <div class="sensor-title col-12">
+        {{ title }}
+    </div>
+    <div class="sensor-subtitle col-12">
+        {{ subtitle }}
+    </div>
+    <div class="sensor-status col-12">
+        <span [ngClass]="{ 'fill-red': !componentOk }" (click)="changeStatus()"></span>
+    </div>
+    <div class="sensor-data">
+        <div *ngFor="let item of sensorData" class="col-12">
+            <span class="float-right">{{ item.Key }}</span>
+            <b *ngIf="item.IsDate else NotDate" class="float-left">{{ item.Value | date: 'dd.MM.yyyy' }}</b>
+            <ng-template #NotDate>
+                <b class="float-left">{{ item.Value }}</b>
+            </ng-template>
+        </div>
+    </div>
+</div>

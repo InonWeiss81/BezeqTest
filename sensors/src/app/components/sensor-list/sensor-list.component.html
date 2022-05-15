@@ -1,0 +1,23 @@
+<div class="header">
+    <h2>
+        {{ texts.Header }}
+    </h2>
+</div>
+<div class="status col-12">
+    <span>{{ totalSensors }}</span>
+    {{ this.texts.Registered }}
+    (
+    <span>{{ properSensors }}</span>
+    {{ this.texts.DevicesProper }}
+
+    <span>{{ errorSensors }}</span>
+    {{ this.texts.DeviceError }}
+    )
+</div>
+<div class="list-container">
+    <div class="offset-1 col-8 offset-md-1 col-md-10 offset-xl-0 col-xl-12">
+        <div class="sensor-container col-12 col-md-6 col-xl-3" *ngFor="let sensor of sensors">
+            <app-sensor [data]="sensor"></app-sensor>
+        </div>
+    </div>
+</div>
